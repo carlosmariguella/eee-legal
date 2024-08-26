@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aventura Interativa</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        .option {
+            margin: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        .option:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Aventura Interativa</h1>
+    <p id="question">Qual cidade vamos explorar?</p>
+    
+    <button class="option" onclick="chooseOption('rio')">Rio de Janeiro</button>
+    <button class="option" onclick="chooseOption('fortaleza')">Fortaleza</button>
+
+    <script>
+        function chooseOption(city) {
+            if (city === 'rio') {
+                document.getElementById('question').innerText = "Você escolheu Rio de Janeiro! Agora, deseja visitar o Cristo Redentor ou a Praia de Copacabana?";
+                document.querySelectorAll('.option')[0].innerText = "Cristo Redentor";
+                document.querySelectorAll('.option')[1].innerText = "Praia de Copacabana";
+                document.querySelectorAll('.option')[0].setAttribute("onclick", "chooseOption('cristo')");
+                document.querySelectorAll('.option')[1].setAttribute("onclick", "chooseOption('copacabana')");
+            } else if (city === 'fortaleza') {
+                document.getElementById('question').innerText = "Você escolheu Fortaleza! Agora, deseja visitar a Praia do Futuro ou o Mercado Central?";
+                document.querySelectorAll('.option')[0].innerText = "Praia do Futuro";
+                document.querySelectorAll('.option')[1].innerText = "Mercado Central";
+                document.querySelectorAll('.option')[0].setAttribute("onclick", "chooseOption('futuro')");
+                document.querySelectorAll('.option')[1].setAttribute("onclick", "chooseOption('mercado')");
+            } else if (city === 'cristo') {
+                document.getElementById('question').innerText = "Você está no Cristo Redentor! Aproveite a vista maravilhosa!";
+                document.querySelectorAll('.option')[0].style.display = "none";
+                document.querySelectorAll('.option')[1].style.display = "none";
+            } else if (city === 'copacabana') {
+                document.getElementById('question').innerText = "Você está na Praia de Copacabana! Relaxe e curta a praia!";
+                document.querySelectorAll('.option')[0].style.display = "none";
+                document.querySelectorAll('.option')[1].style.display = "none";
+            } else if (city === 'futuro') {
+                document.getElementById('question').innerText = "Você está na Praia do Futuro! Aproveite o sol e o mar!";
+                document.querySelectorAll('.option')[0].style.display = "none";
+                document.querySelectorAll('.option')[1].style.display = "none";
+            } else if (city === 'mercado') {
+                document.getElementById('question').innerText = "Você está no Mercado Central! Explore as lojas e descubra coisas novas!";
+                document.querySelectorAll('.option')[0].style.display = "none";
+                document.querySelectorAll('.option')[1].style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+</html>
